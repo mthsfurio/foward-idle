@@ -47,12 +47,12 @@ async def sender_bH(event):
             )
         except Exception as e:
             print(e)
-            
-@BotzHubUser.on(events.MessageEdited)
+
+@BotzHubUser.on(events.MessageEdited(incoming=True, chats=FROM))
 async def handler(event):
     # Log the date of new edits
-    print(event.message)
     print('Message', event.id, 'changed at', event.date)
+
 
 print("Bot has started.")
 BotzHubUser.run_until_disconnected()
