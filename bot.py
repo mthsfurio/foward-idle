@@ -48,17 +48,5 @@ async def sender_bH(event):
         except Exception as e:
             print(e)
 
-@BotzHubUser.on(events.MessageEdited(incoming=True, chats=FROM))
-async def handler(event):
-    for e in TO:
-            try:
-                await BotzHubUser.send_message(
-                    e,
-                    event.message
-                )
-            except Exception as e:
-                print(e)
-
-
 print("Bot has started.")
 BotzHubUser.run_until_disconnected()
